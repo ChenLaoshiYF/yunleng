@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# 模型文件（体积大，不入库，用 scripts/download_models.py 拉取）
+models/*.task
+models/*.pt
+!models/.gitkeep
+
+# 运行产物
+captures/
+*.jpg
+*.png
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

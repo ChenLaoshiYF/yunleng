@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "camera-mcp-server"
+version = "0.1.0"
+description = "本地摄像头视觉 MCP Server：让 AI Agent 通过 MCP 调用摄像头做视觉感知（手势 / 物体 / 画面理解）"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "QingOH" }]
+keywords = ["mcp", "camera", "computer-vision", "mediapipe", "yolo", "agent"]
+
+dependencies = [
+    "mcp>=2.0.0",
+    "opencv-python>=4.9",
+    "numpy>=1.24",
+    "mediapipe>=0.10.14",
+]
+
+[project.optional-dependencies]
+# 物体检测（YOLO）：体积较大，按需安装
+objects = [
+    "ultralytics>=8.2",
+]
+# 开发 / 调试
+dev = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+camera-mcp = "camera_mcp.server:main"
+
+[tool.setuptools.packages.find]
+include = ["camera_mcp*"]
