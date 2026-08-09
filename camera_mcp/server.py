@@ -15,6 +15,7 @@ import json
 import logging
 import os
 import sys
+from typing import Optional
 
 import cv2
 from mcp.server import MCPServer
@@ -125,7 +126,7 @@ def auto_focus(cam_id: str = "0", frames: int = 6,
 
 
 @mcp.tool()
-def set_exposure(cam_id: str, mode: str = "auto", value: float = None) -> str:
+def set_exposure(cam_id: str, mode: str = "auto", value: Optional[float] = None) -> str:
     """曝光控制：mode=auto 自动曝光；mode=manual 切手动，value 可选。"""
     return _ok(manager.set_exposure(cam_id, mode=mode, value=value))
 
