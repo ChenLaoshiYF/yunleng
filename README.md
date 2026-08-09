@@ -70,6 +70,24 @@ pip install -e ".[objects]"
 add_remote_camera url="http://192.168.x.x:8080/video"
 ```
 
+## 画面理解（可选）
+
+`analyze_scene` 依赖本地 Ollama 视觉模型：
+
+1. 安装 Ollama：https://ollama.com
+2. 拉取视觉模型：`ollama pull qwen2.5vl`
+
+Ollama 没装或没启动时，这个工具会返回明确的错误提示，不影响其他工具使用。
+
+## 可配置项（环境变量）
+
+| 变量 | 作用 | 默认 |
+|------|------|------|
+| `CAMERA_MCP_HAND_MODEL` | 手势模型路径 | 项目 `models/` 目录 |
+| `CAMERA_MCP_YOLO_MODEL` | YOLO 权重路径 | `yolov8n.pt` |
+| `CAMERA_MCP_OLLAMA_MODEL` | Ollama 视觉模型名 | `qwen2.5vl` |
+| `CAMERA_MCP_OLLAMA_URL` | Ollama 服务地址 | `http://localhost:11434` |
+
 ## 工具一览
 
 共 13 个工具：
@@ -92,9 +110,15 @@ add_remote_camera url="http://192.168.x.x:8080/video"
 
 ## 测试情况
 
-- smoke test 3 遍通过
-- 5 分钟连续拍照稳定性测试：10 帧零失败，内存平稳
-- 100 次连续 capture 无衰减
+smoke test 以 MCP 客户端身份连接真实 server 跑完整链路：
+
+- 13 个工具全部注册 ✔
+- 本地摄像头枚举、属性读写 ✔
+- 远程摄像头接入、双摄并发（实测 drift ≈ 1ms）✔
+- 智能拍照、自动对焦、曝光控制 ✔
+- 画面理解无 Ollama 时优雅降级 ✔
+
+另有稳定性测试脚本：`scripts/smoke_test.py`（核心链路）、`scripts/stability_check.py`（6 项功能重复跑）、`scripts/long_run_test.py`（长时间内存稳定性，30 分钟版报告见 `scripts/long_run_report.md`）。
 
 ## License
 
