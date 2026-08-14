@@ -151,6 +151,16 @@ The full suite is in `scripts/` — `smoke_test.py`, `stability_check.py`, `long
 
 ---
 
+## Related projects
+
+Part of the [ChenLaoshiYF](https://github.com/ChenLaoshiYF) open-source family:
+
+- [**mcpguard 明棱**](https://github.com/ChenLaoshiYF/mcpguard) — AI agent security scanner: detects prompt injection, tool poisoning and hidden instructions in MCP servers and skills
+- [**chening 陈棱**](https://github.com/ChenLaoshiYF/chening) — CUMCM math modeling AI skill pack for Chinese national contest students
+- [**zhiyin 纸音**](https://github.com/ChenLaoshiYF/zhiyin) — real-time Russian→Chinese interpretation for online classes
+
+---
+
 ## License
 
 MIT
