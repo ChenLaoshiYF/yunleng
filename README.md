@@ -133,6 +133,7 @@ If Ollama isn't running, that one tool returns a clear error message. Everything
 - **Cameras are opened per-call and released immediately.** No lingering handles, no resource leaks on marathon sessions.
 - **Models load once, shared process-wide.** The first call is slow, everything after is fast.
 - **Graceful degradation everywhere.** No Ollama? No YOLO? Those tools tell you clearly instead of crashing the server.
+- **Layered architecture (v0.2.0).** `camera/` abstracts backends (local/remote) behind a single interface; `vision/` owns scene detection + enhancement + VLM understanding. The MCP layer stays thin and stable on top.
 
 ## Battle-tested
 

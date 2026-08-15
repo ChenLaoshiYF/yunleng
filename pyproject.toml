@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "camera-mcp-server"
-version = "0.1.0"
+version = "0.2.0"
 description = "本地摄像头视觉 MCP Server：让 AI Agent 通过 MCP 调用摄像头做视觉感知（手势 / 物体 / 画面理解）"
 readme = "README.md"
 requires-python = ">=3.10"

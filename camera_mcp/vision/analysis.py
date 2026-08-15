@@ -1,4 +1,4 @@
-"""画面理解模块：通过本地 Ollama 调用 Qwen-VL（或其他 VLM）理解画面。
+﻿"""画面理解模块：通过本地 Ollama 调用 Qwen-VL（或其他 VLM）理解画面。
 
 纯 HTTP 调用 Ollama 的 /api/generate，不需要额外 Python 依赖；
 Ollama 未启动或模型未拉取时返回清晰提示，不影响 server 主流程。
