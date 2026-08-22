@@ -18,7 +18,7 @@ jobs:
       - name: Set image tags
         id: meta
         run: |
-          IMG=ghcr.io/${{ github.repository_owner }}/yunleng
+          IMG=$(echo ghcr.io/${{ github.repository_owner }}/yunleng | tr '[:upper:]' '[:lower:]')
           echo "image=$IMG" >> "$GITHUB_OUTPUT"
           echo "tags=$IMG:latest,${IMG}:${{ github.sha }}" >> "$GITHUB_OUTPUT"
 
