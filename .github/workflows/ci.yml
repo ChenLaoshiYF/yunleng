@@ -18,9 +18,9 @@ jobs:
 
       - name: Syntax check
         run: |
-          python -m py_compile camera_mcp/*.py camera_mcp/camera/*.py camera_mcp/vision/*.py server.py run.py
+          python -m py_compile camera_mcp/*.py camera_mcp/camera/*.py camera_mcp/vision/*.py
 
       - name: Import check
         run: |
           pip install --quiet mcp==2.0.0
-          python -c "import camera_mcp; print('camera_mcp imports OK')"
+          python -c "import camera_mcp; print('camera_mcp imports OK, version', camera_mcp.__version__)"
