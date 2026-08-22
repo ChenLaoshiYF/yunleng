@@ -1,5 +1,7 @@
 # 👁️ Yunleng — Give Your AI Agent Eyes
 
+![CI](https://github.com/ChenLaoshiYF/yunleng/actions/workflows/ci.yml/badge.svg) ![Docker](https://github.com/ChenLaoshiYF/yunleng/actions/workflows/docker.yml/badge.svg)
+
 **云棱** · A local MCP server that turns your cameras into tools your AI can call.
 
 Your agent can read ten thousand files in a minute. It can browse the whole internet, write a novel, debug a kernel, beat you at chess. But right now, it has **no idea what your face looks like**.
@@ -171,3 +173,13 @@ MIT
 *Yunleng — 云棱, the cloud's edge. The place where AI finally starts looking at the world.*
 
 *Star it if you want your agents to see too.* ⭐
+
+## Docker
+
+容器化运行（MCP stdio 模式），镜像托管在 GHCR：
+
+```bash
+docker run --rm ghcr.io/chenlaoshiyf/yunleng:latest 
+```
+
+镜像随 master 分支自动构建推送。
