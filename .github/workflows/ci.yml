@@ -1,0 +1,26 @@
+name: ci
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  syntax-and-import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Syntax check
+        run: |
+          python -m py_compile camera_mcp/*.py camera_mcp/camera/*.py camera_mcp/vision/*.py server.py run.py
+
+      - name: Import check
+        run: |
+          pip install --quiet mcp==2.0.0
+          python -c "import camera_mcp; print('camera_mcp imports OK')"
